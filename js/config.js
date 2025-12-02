@@ -1,5 +1,5 @@
 // Configuración de usuarios, familias y sorteo
-// Amigo Invisible 2024
+// Amigo Invisible 2025
 
 const USERS = {
     // Familia Hermann

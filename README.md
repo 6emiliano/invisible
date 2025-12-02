@@ -1,4 +1,4 @@
-# 🎄 Amigo Invisible 2024
+# 🎄 Amigo Invisible 2025
 
 Aplicación web para sorteo de Amigo Invisible familiar con restricciones de familia.
 
@@ -48,7 +48,7 @@ Si deseas generar un nuevo sorteo para la próxima navidad:
 5. Abre la Consola del Desarrollador (F12)
 6. En la consola, ejecuta uno de estos comandos:
    - `regenerarSorteo()` - para un sorteo completamente aleatorio
-   - `regenerarSorteo(2025)` - para un sorteo con semilla del año 2025 (reproducible)
+   - `regenerarSorteo(2026)` - para un sorteo con semilla del año 2026 (reproducible)
 7. Copia el código que aparece en la consola
 8. Pega el código en `js/config.js`, reemplazando el objeto `SORTEO_RESULTS`
 9. Vuelve a comentar la función en `js/sorteo.js`
@@ -108,4 +108,4 @@ Disfruta del intercambio de regalos y mantén el secreto hasta el día del event
 
 ---
 
-**Creado con ❤️ para la familia en Navidad 2024**
+**Creado con ❤️ para la familia en Navidad 2025**
