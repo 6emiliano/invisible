@@ -1,23 +1,78 @@
-/* Estilos personalizados para Amigo Invisible 2024 */
+/* Estilos personalizados para Regalo Secreto Navideño 2025 */
 
 :root {
-    --christmas-red: #c41e3a;
-    --christmas-green: #0f5132;
-    --christmas-gold: #ffd700;
-    --christmas-dark: #1a3a1a;
-    --christmas-light: #f5f5f5;
+    --christmas-red: #e63946;
+    --christmas-red-dark: #c1121f;
+    --christmas-green: #2d6a4f;
+    --christmas-green-light: #52b788;
+    --christmas-gold: #ffd60a;
+    --christmas-gold-light: #ffc300;
+    --christmas-white: #ffffff;
+    --christmas-cream: #fffbf0;
+    --gradient-festive: linear-gradient(135deg, #e63946 0%, #c1121f 50%, #780000 100%);
+    --gradient-gold: linear-gradient(135deg, #ffd60a 0%, #ffc300 50%, #ffb700 100%);
+    --gradient-green: linear-gradient(135deg, #52b788 0%, #2d6a4f 50%, #1b4332 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: linear-gradient(135deg, #1a3a1a 0%, #2d5a2d 100%);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #52b788 100%);
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
 }
 
-/* Efecto de nieve */
+/* Efecto de nieve mejorado */
 .snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -20px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: fall linear infinite, sway ease-in-out infinite;
+}
+
+.snowflake:nth-child(1) { left: 10%; animation-duration: 10s, 3s; animation-delay: 0s, 0s; }
+.snowflake:nth-child(2) { left: 20%; animation-duration: 12s, 4s; animation-delay: 2s, 1s; font-size: 1.5rem; }
+.snowflake:nth-child(3) { left: 30%; animation-duration: 9s, 3.5s; animation-delay: 4s, 0.5s; }
+.snowflake:nth-child(4) { left: 45%; animation-duration: 11s, 3.8s; animation-delay: 1s, 2s; font-size: 2rem; }
+.snowflake:nth-child(5) { left: 60%; animation-duration: 13s, 4.2s; animation-delay: 3s, 1.5s; }
+.snowflake:nth-child(6) { left: 70%; animation-duration: 10s, 3.3s; animation-delay: 5s, 0.8s; font-size: 1.6rem; }
+.snowflake:nth-child(7) { left: 80%; animation-duration: 11.5s, 3.9s; animation-delay: 2.5s, 1.8s; }
+.snowflake:nth-child(8) { left: 85%; animation-duration: 9.5s, 3.6s; animation-delay: 4.5s, 1.2s; font-size: 1.7rem; }
+.snowflake:nth-child(9) { left: 92%; animation-duration: 12.5s, 4.1s; animation-delay: 1.5s, 2.3s; }
+.snowflake:nth-child(10) { left: 95%; animation-duration: 10.5s, 3.4s; animation-delay: 3.5s, 0.6s; font-size: 1.9rem; }
+
+@keyframes fall {
+    to {
+        transform: translateY(105vh);
+    }
+}
+
+@keyframes sway {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(30px); }
+}
+
+/* Estrellas brillantes */
+.stars-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -27,103 +82,259 @@ body {
     z-index: 1;
 }
 
-.snowflake {
+.star {
     position: absolute;
-    top: -20px;
-    color: white;
-    font-size: 1.5rem;
-    opacity: 0.8;
-    animation: fall linear infinite;
+    width: 4px;
+    height: 4px;
+    background: var(--christmas-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--christmas-gold), 0 0 20px var(--christmas-gold);
+    animation: twinkle 2s ease-in-out infinite;
 }
 
-.snowflake:nth-child(1) { left: 10%; animation-duration: 10s; animation-delay: 0s; }
-.snowflake:nth-child(2) { left: 30%; animation-duration: 12s; animation-delay: 2s; }
-.snowflake:nth-child(3) { left: 50%; animation-duration: 9s; animation-delay: 4s; }
-.snowflake:nth-child(4) { left: 70%; animation-duration: 11s; animation-delay: 1s; }
-.snowflake:nth-child(5) { left: 85%; animation-duration: 13s; animation-delay: 3s; }
-.snowflake:nth-child(6) { left: 95%; animation-duration: 10s; animation-delay: 5s; }
+.star:nth-child(1) { top: 20%; left: 15%; animation-delay: 0s; }
+.star:nth-child(2) { top: 40%; left: 80%; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 60%; left: 25%; animation-delay: 1s; }
+.star:nth-child(4) { top: 30%; left: 60%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 70%; left: 90%; animation-delay: 2s; }
 
-@keyframes fall {
-    to {
-        transform: translateY(100vh) rotate(360deg);
-    }
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
 }
 
-/* Cards */
+/* Cards con Glassmorphism */
 .login-card,
 .result-card {
-    background: white;
-    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 25px;
     padding: 3rem 2.5rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
     position: relative;
     z-index: 10;
-    border: 3px solid var(--christmas-gold);
+    border: 2px solid rgba(255, 214, 10, 0.3);
+    animation: cardGlow 3s ease-in-out infinite;
+}
+
+@keyframes cardGlow {
+    0%, 100% { box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 0 30px rgba(255, 214, 10, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+    50% { box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 0 50px rgba(255, 214, 10, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2); }
+}
+
+/* Títulos */
+.title-main {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 3rem;
+    font-weight: 700;
+    background: var(--gradient-festive);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 5px 15px rgba(230, 57, 70, 0.3);
+    margin-bottom: 0.5rem;
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+.title-sub {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 2rem;
+    color: var(--christmas-gold);
+    text-shadow: 0 3px 10px rgba(255, 214, 10, 0.5);
+    margin-bottom: 1rem;
+}
+
+@keyframes titlePulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Decoración del título */
+.title-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.decoration-star {
+    font-size: 1.5rem;
+    animation: sparkle 1.5s ease-in-out infinite;
+}
+
+.decoration-line {
+    width: 80px;
+    height: 2px;
+    background: var(--gradient-gold);
+    border-radius: 2px;
+}
+
+/* Icono de regalo */
+.gift-icon-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.gift-icon {
+    font-size: 5rem;
+    background: var(--gradient-festive);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: bounce 2s ease-in-out infinite;
+    filter: drop-shadow(0 5px 15px rgba(230, 57, 70, 0.5));
+}
+
+.star-accent {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    font-size: 1.5rem;
+    color: var(--christmas-gold);
+    animation: rotate360 3s linear infinite;
+    filter: drop-shadow(0 0 10px var(--christmas-gold));
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.05); }
+}
+
+@keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 /* Colores navideños */
 .text-christmas {
-    color: var(--christmas-red);
+    background: var(--gradient-festive);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
 }
 
-.gift-icon {
-    font-size: 4rem;
-    color: var(--christmas-red);
-    margin-bottom: 1rem;
-    animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-/* Botón personalizado */
+/* Botón personalizado mejorado */
 .btn-christmas {
-    background: linear-gradient(135deg, var(--christmas-red) 0%, #a01628 100%);
+    background: var(--gradient-festive);
     border: none;
     color: white;
     padding: 1rem 2rem;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(196, 30, 58, 0.3);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 
+        0 8px 20px rgba(230, 57, 70, 0.4),
+        0 0 0 0 rgba(230, 57, 70, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-christmas::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-christmas:hover::before {
+    width: 300px;
+    height: 300px;
 }
 
 .btn-christmas:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(196, 30, 58, 0.4);
-    background: linear-gradient(135deg, #d42545 0%, #c41e3a 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 
+        0 12px 30px rgba(230, 57, 70, 0.6),
+        0 0 20px rgba(255, 214, 10, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
     color: white;
 }
 
 .btn-christmas:active {
-    transform: translateY(0);
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 
+        0 5px 15px rgba(230, 57, 70, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* Formulario */
+/* Formulario mejorado */
+.form-label {
+    color: var(--christmas-white);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    font-size: 1.05rem;
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: var(--christmas-white);
+    border-radius: 12px;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
 .form-control:focus {
-    border-color: var(--christmas-red);
-    box-shadow: 0 0 0 0.25rem rgba(196, 30, 58, 0.25);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: var(--christmas-gold);
+    box-shadow: 
+        0 0 0 0.25rem rgba(255, 214, 10, 0.25),
+        0 0 20px rgba(255, 214, 10, 0.3);
+    color: var(--christmas-white);
+    transform: scale(1.02);
 }
 
-/* Caja de regalo */
+/* Caja de regalo mejorada */
 .gift-box-container {
     text-align: center;
-    padding: 2rem 0;
+    padding: 3rem 0;
 }
 
 .gift-box {
     display: inline-block;
     position: relative;
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 30px rgba(230, 57, 70, 0.4));
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-25px) rotate(5deg); }
 }
 
 .gift-box .gift-lid {
@@ -131,8 +342,18 @@ body {
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--christmas-red);
-    transition: all 0.6s ease;
+    font-size: 5rem;
+    background: var(--gradient-festive);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    animation: giftShine 2s ease-in-out infinite;
+}
+
+@keyframes giftShine {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(230, 57, 70, 0.5)); }
+    50% { filter: drop-shadow(0 0 25px rgba(255, 214, 10, 0.8)); }
 }
 
 .gift-box .gift-body {
@@ -140,69 +361,220 @@ body {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 120px;
-    height: 100px;
-    background: linear-gradient(135deg, var(--christmas-red) 0%, #a01628 100%);
-    border-radius: 10px;
+    width: 140px;
+    height: 120px;
+    background: var(--gradient-festive);
+    border-radius: 15px;
+    box-shadow: 
+        0 10px 30px rgba(230, 57, 70, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-/* Animación de apertura */
+/* Animación de apertura mejorada */
 .gift-box-container.opening .gift-box .gift-lid {
-    transform: translateX(-50%) translateY(-100px) rotate(15deg);
+    transform: translateX(-50%) translateY(-120px) rotate(25deg) scale(1.2);
     opacity: 0;
 }
 
-/* Contenedor de revelación */
-.reveal-container {
-    animation: fadeIn 0.8s ease;
+.gift-box-container.opening .gift-box {
+    animation: shake 0.5s ease;
 }
 
-@keyframes fadeIn {
-    from {
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Contenedor de revelación mejorado */
+.reveal-container {
+    animation: revealPop 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes revealPop {
+    0% {
         opacity: 0;
-        transform: scale(0.8);
+        transform: scale(0.5) rotate(-5deg);
     }
-    to {
+    50% {
+        transform: scale(1.1) rotate(2deg);
+    }
+    100% {
         opacity: 1;
-        transform: scale(1);
+        transform: scale(1) rotate(0deg);
     }
 }
 
 .reveal-card {
-    background: linear-gradient(135deg, #fff5e6 0%, #ffffff 100%);
-    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(255, 251, 240, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
     padding: 3rem 2rem;
     border: 3px solid var(--christmas-gold);
+    box-shadow: 
+        0 15px 40px rgba(0, 0, 0, 0.2),
+        0 0 30px rgba(255, 214, 10, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .reveal-star {
-    color: var(--christmas-gold);
-    font-size: 3rem;
-    animation: sparkle 1.5s ease-in-out infinite;
+    font-size: 3.5rem;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: sparkleRotate 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px var(--christmas-gold));
 }
 
-@keyframes sparkle {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(1.2); }
+@keyframes sparkleRotate {
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1) rotate(0deg); 
+    }
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.3) rotate(180deg); 
+    }
+}
+
+#amigoName {
+    background: var(--gradient-festive);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: nameReveal 1s ease-out;
+    filter: drop-shadow(0 5px 15px rgba(230, 57, 70, 0.3));
+}
+
+@keyframes nameReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Alertas personalizadas */
 .alert {
-    border-radius: 10px;
+    border-radius: 15px;
+    border: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
 }
 
-/* Responsive */
+.alert-success {
+    background: rgba(82, 183, 136, 0.9);
+    color: white;
+}
+
+.alert-danger {
+    background: rgba(230, 57, 70, 0.9);
+    color: white;
+}
+
+.alert-info {
+    background: rgba(255, 214, 10, 0.15);
+    border: 2px solid var(--christmas-gold);
+    color: var(--christmas-red-dark);
+}
+
+/* Texto pequeño */
+.text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de cerrar sesión */
+.btn-outline-danger {
+    color: var(--christmas-red);
+    border: 2px solid var(--christmas-red);
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+    background: var(--gradient-festive);
+    border-color: var(--christmas-red);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.3);
+}
+
+/* Responsive mejorado */
 @media (max-width: 768px) {
     .login-card,
     .result-card {
         padding: 2rem 1.5rem;
+        margin: 1rem;
     }
     
-    .display-4 {
-        font-size: 2rem;
+    .title-main {
+        font-size: 2.2rem;
+    }
+    
+    .title-sub {
+        font-size: 1.5rem;
+    }
+    
+    .gift-icon {
+        font-size: 4rem;
+    }
+    
+    .gift-box {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .gift-box .gift-lid {
+        font-size: 4rem;
+    }
+    
+    .gift-box .gift-body {
+        width: 120px;
+        height: 100px;
     }
     
     .display-3 {
+        font-size: 2rem !important;
+    }
+    
+    .reveal-star {
         font-size: 2.5rem;
     }
+    
+    .snowflake {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title-main {
+        font-size: 1.8rem;
+    }
+    
+    .title-sub {
+        font-size: 1.2rem;
+    }
+    
+    .btn-christmas {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+}
+
+/* Animación de entrada para fade-in */
+.fade-in {
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
 }
